@@ -15,6 +15,16 @@ public:
 	// Sets default values for this pawn's properties
 	ABasePawn();
 
+private:
+	UPROPERTY()
+	class UCapsuleComponent* CapsuleComponent;
+	UPROPERTY()
+	UStaticMeshComponent* BaseMesh;
+	UPROPERTY()
+	UStaticMeshComponent* TurretMesh;
+	UPROPERTY()
+	USceneComponent* ProjectileSpawnPoint;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
