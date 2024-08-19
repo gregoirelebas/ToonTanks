@@ -16,13 +16,13 @@ public:
 	ABasePawn();
 
 private:
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere, Category = "VALUE", meta = (AllowPrivateAccess = "true"))
 	class UCapsuleComponent* CapsuleComponent;
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere, Category = "VALUE", meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* BaseMesh;
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere, Category = "VALUE", meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* TurretMesh;
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere, Category = "VALUE", meta = (AllowPrivateAccess = "true"))
 	USceneComponent* ProjectileSpawnPoint;
 
 protected:
