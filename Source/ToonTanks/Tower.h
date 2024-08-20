@@ -20,6 +20,16 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Attack")
 	float FireRange = 500.0f;
 
+	FTimerHandle FireTimerHandle;
+	float FireRate = 2.0f;
+
+	bool bIsTankInRange = false;
+
+private:
+	bool IsTankInFireRange();
+
+	void CheckFireCondition();
+
 protected:
 	virtual void BeginPlay() override;
 
