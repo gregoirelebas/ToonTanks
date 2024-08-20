@@ -26,9 +26,27 @@ void ATank::Move(float Value)
 void ATank::Turn(float Value)
 {
 	FRotator DeltaRotation = FRotator::ZeroRotator;
-	DeltaRotation.Yaw = Value * TurnSpeed *UGameplayStatics::GetWorldDeltaSeconds(this);
-	
+	DeltaRotation.Yaw = Value * TurnSpeed * UGameplayStatics::GetWorldDeltaSeconds(this);
+
 	AddActorLocalRotation(DeltaRotation, true);
+}
+
+// Called when the game starts or when spawned
+void ATank::BeginPlay()
+{
+	Super::BeginPlay();
+
+	PlayerController = Cast<APlayerController>(GetController());
+}
+
+// Called every frame
+void ATank::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	FHitResult Result;
+	if (PlayerController && PlayerController->GetHitResultUnderCursor(ECC_Visibility, false, Result))
+		RotateTurret(Result.ImpactPoint);
 }
 
 void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
