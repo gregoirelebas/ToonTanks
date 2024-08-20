@@ -27,8 +27,13 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Movement")
 	float MoveSpeed = 500.0f;
 
+	UPROPERTY(EditAnywhere, Category = "Movement")
+	float TurnSpeed = 45.0f;
+
 private:
 	void Move(float Value);
+
+	void Turn(float Value);
 	
 public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
