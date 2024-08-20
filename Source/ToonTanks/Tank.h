@@ -18,8 +18,18 @@ public:
 	ATank();
 
 private:
-	UPROPERTY(VisibleAnywhere, Category = "Tank Components", meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(VisibleAnywhere, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* SpringArm;
-	UPROPERTY(VisibleAnywhere, Category = "Tank Components", meta = (AllowPrivateAccess = "true"))
+
+	UPROPERTY(VisibleAnywhere, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* Camera;
+
+	UPROPERTY(EditAnywhere, Category = "Movement")
+	float MoveSpeed = 500.0f;
+
+private:
+	void Move(float Value);
+	
+public:
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 };
