@@ -31,7 +31,6 @@ void ATank::Turn(float Value)
 	AddActorLocalRotation(DeltaRotation, true);
 }
 
-// Called when the game starts or when spawned
 void ATank::BeginPlay()
 {
 	Super::BeginPlay();
@@ -39,7 +38,6 @@ void ATank::BeginPlay()
 	PlayerController = Cast<APlayerController>(GetController());
 }
 
-// Called every frame
 void ATank::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
