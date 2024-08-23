@@ -30,7 +30,7 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Movement")
 	float TurnSpeed = 45.0f;
 
-	APlayerController* PlayerController = nullptr;
+	APlayerController* PlayerController;
 
 private:
 	void Move(float Value);
@@ -44,4 +44,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	void HandleDestruction();
+
+	APlayerController* GetPlayerController() const;
 };

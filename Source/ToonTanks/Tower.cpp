@@ -40,3 +40,10 @@ void ATower::Tick(float DeltaTime)
 	if (bIsTankInRange)
 		RotateTurret(Tank->GetActorLocation());
 }
+
+void ATower::HandleDestruction()
+{
+	Super::HandleDestruction();
+
+	Destroy();
+}

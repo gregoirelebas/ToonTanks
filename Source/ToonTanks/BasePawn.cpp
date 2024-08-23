@@ -41,3 +41,10 @@ void ABasePawn::Fire()
 	AProjectile* Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileClass, Location, Rotation);
 	Projectile->SetOwner(this);
 }
+
+void ABasePawn::HandleDestruction()
+{
+	//	TODO: Sound and VFX
+
+
+}

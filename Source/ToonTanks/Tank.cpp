@@ -55,3 +55,16 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	PlayerInputComponent->BindAxis(TEXT("Turn"), this, &ATank::Turn);
 	PlayerInputComponent->BindAction(TEXT("Fire"), IE_Pressed, this, &ATank::Fire);
 }
+
+void ATank::HandleDestruction()
+{
+	Super::HandleDestruction();
+
+	SetActorHiddenInGame(true);
+	SetActorTickEnabled(false);
+}
+
+APlayerController* ATank::GetPlayerController() const
+{
+	return PlayerController;
+}
