@@ -4,6 +4,7 @@
 #include "Projectile.h"
 
 #include "GameFramework/ProjectileMovementComponent.h"
+#include <Kismet/GameplayStatics.h>
 
 AProjectile::AProjectile()
 {
@@ -24,5 +25,14 @@ void AProjectile::BeginPlay()
 
 void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
-	GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Blue, TEXT("Component hit!"));
+	AActor* OwnerActor = GetOwner();
+	if (OwnerActor == nullptr) return;
+
+	AController* InstigatorActor = OwnerActor->GetInstigatorController();
+	UClass* DamageClass = UDamageType::StaticClass();
+
+	if (OtherActor && OtherActor != this && OtherActor != OwnerActor)
+		UGameplayStatics::ApplyDamage(OtherActor, Damage, InstigatorActor, this, DamageClass);
+
+	Destroy();
 }

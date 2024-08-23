@@ -21,6 +21,9 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = "Movement")
 	class UProjectileMovementComponent* MovementComponent;
 
+	UPROPERTY(EditAnywhere, Category = "Damage")
+	float Damage = 50.0f;
+
 public:
 	UFUNCTION()
 	void BeginPlay() override;
