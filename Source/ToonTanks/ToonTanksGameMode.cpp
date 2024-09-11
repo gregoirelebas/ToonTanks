@@ -30,6 +30,8 @@ void AToonTanksGameMode::HandleGameStart()
 			true);
 
 		GetWorldTimerManager().SetTimer(handle, callback, StartDelay, false);
+
+		StartGame();
 	}
 }
 

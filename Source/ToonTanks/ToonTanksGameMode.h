@@ -26,6 +26,10 @@ protected:
 private:
 	void HandleGameStart();
 
+protected:
+	UFUNCTION(BlueprintImplementableEvent)
+	void StartGame();
+
 public:
 	void ActorDied(AActor* DeadActor);
 };
