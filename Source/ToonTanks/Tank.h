@@ -32,6 +32,9 @@ private:
 
 	APlayerController* PlayerController;
 
+public:
+	bool bIsAlive = true;
+
 private:
 	void Move(float Value);
 
