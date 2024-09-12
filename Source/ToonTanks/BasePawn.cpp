@@ -46,4 +46,7 @@ void ABasePawn::HandleDestruction()
 {
 	if (DeathExplosion)
 		UGameplayStatics::SpawnEmitterAtLocation(this, DeathExplosion, GetActorLocation());
+
+	if (DeathSound)
+		UGameplayStatics::PlaySoundAtLocation(this, DeathSound, GetActorLocation());
 }
